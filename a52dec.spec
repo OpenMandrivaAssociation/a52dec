@@ -2,6 +2,7 @@
 %define major		0
 %define libname		lib%{name}
 %define fulllibname	%mklibname %{name} %{major}
+%define develname %mklibname -d %name
 %define version 0.7.4
 %define release %mkrel 9
 
@@ -9,11 +10,11 @@ Name:		%{name}
 Version:	%{version}
 Release:	%{release}
 Summary:	A free ATSC A/52 stream decoder library
-License:	GPL
+License:	GPLv2+
 Group:		Video
 URL:		http://liba52.sourceforge.net
 Source:		%{name}-%{version}.tar.bz2
-Patch0:		a52dec-0.7.4-pic.patch.bz2
+Patch0:		a52dec-0.7.4-pic.patch
 BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
 Obsoletes:	liba52-apps
 Provides:	liba52-apps
@@ -46,7 +47,7 @@ digital television and DVD. It is also known as AC-3.
 
 This package contains libraries needed to run programs linked with %{name}.
 
-%package -n %{fulllibname}-devel
+%package -n %develname
 Summary:	Development files for %{name}
 Group:		Development/C
 Requires:	%{fulllibname} = %{version}
@@ -55,11 +56,9 @@ Provides:	%{name}-devel = %{version}-%{release}
 Obsoletes:	liba52dec_0-devel
 Obsoletes:	liba52_0-devel
 Obsoletes:	liba520-devel
-Provides:	liba52dec_0-devel
-Provides:	liba52_0-devel
-Provides:	liba520-devel
+Obsoletes: %mklibname -d %name 0
 
-%description -n %{fulllibname}-devel
+%description -n %develname
 liba52 is a free library for decoding ATSC A/52 streams.
 
 The A/52 standard is used in a variety of applications, including
@@ -97,9 +96,9 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -n %{fulllibname}
 %defattr(-,root,root)
-%{_libdir}/*.so.*
+%{_libdir}/liba52.so.%{major}*
 
-%files -n %{fulllibname}-devel
+%files -n %develname
 %defattr(-,root,root)
 %{_includedir}/*
 %{_libdir}/*.a
