@@ -15,7 +15,6 @@ Group:		Video
 URL:		http://liba52.sourceforge.net
 Source:		%{name}-%{version}.tar.bz2
 Patch0:		a52dec-0.7.4-pic.patch
-BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
 Obsoletes:	liba52-apps
 Provides:	liba52-apps
 Requires:	%{fulllibname} = %{version}
