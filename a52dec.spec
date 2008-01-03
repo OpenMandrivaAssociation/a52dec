@@ -4,7 +4,7 @@
 %define fulllibname	%mklibname %{name} %{major}
 %define develname %mklibname -d %name
 %define version 0.7.4
-%define release %mkrel 9
+%define release %mkrel 10
 
 Name:		%{name}
 Version:	%{version}
@@ -73,6 +73,7 @@ use %{name}.
 autoconf
 
 %build
+export CFLAGS="%optflags -fPIC"
 %configure2_5x --enable-shared
 %make
 
