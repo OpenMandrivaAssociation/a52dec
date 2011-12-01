@@ -83,7 +83,7 @@ rm -rf %buildroot
 chrpath -d %buildroot%_bindir/a52dec
 
 %clean
-rm -rf $RPM_BUILD_ROOT
+rm -rf %{buildroot}
 
 %if %mdkversion < 200900
 %post -n %{fulllibname} -p /sbin/ldconfig
