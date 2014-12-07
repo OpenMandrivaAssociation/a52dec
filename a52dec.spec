@@ -5,7 +5,7 @@
 Summary:	A free ATSC A/52 stream decoder library
 Name:		a52dec
 Version:	0.7.4
-Release:	29
+Release:	30
 License:	GPLv2+
 Group:		Video
 Url:		http://liba52.sourceforge.net
