@@ -1,6 +1,7 @@
 %define major	0
 %define libname	%mklibname %{name} %{major}
 %define devname	%mklibname -d %{name}
+%define _disable_lto 1
 
 Summary:	A free ATSC A/52 stream decoder library
 Name:		a52dec
