@@ -6,7 +6,7 @@
 Summary:	A free ATSC A/52 stream decoder library
 Name:		a52dec
 Version:	0.7.4
-Release:	37
+Release:	38
 License:	GPLv2+
 Group:		Video
 Url:		http://liba52.sourceforge.net
@@ -40,8 +40,7 @@ This package contains development files needed to compile programs which
 use %{name}.
 
 %prep
-%setup -q
-%autopatch -p1
+%autosetup -p1
 autoconf
 
 %build
@@ -49,16 +48,17 @@ export CFLAGS="%{optflags} -fPIC"
 %configure \
 	--enable-shared \
 	--disable-static
-%make
+
+%make_build
 
 %install
-%makeinstall_std
+%make_install
 chrpath -d %{buildroot}%{_bindir}/a52dec
 
 %files
 %doc AUTHORS COPYING NEWS README TODO HISTORY
 %{_bindir}/*
-%{_mandir}/man1/*
+%doc %{_mandir}/man1/*
 
 %files -n %{libname}
 %{_libdir}/liba52.so.%{major}*
@@ -66,4 +66,3 @@ chrpath -d %{buildroot}%{_bindir}/a52dec
 %files -n %{devname}
 %{_includedir}/*
 %{_libdir}/*.so
-
