@@ -12,6 +12,11 @@ Group:		Video
 Url:		https://git.adelielinux.org/community/a52dec
 Source0:	https://git.adelielinux.org/community/a52dec/-/archive/v%{version}/a52dec-v%{version}.tar.bz2
 
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires:	chrpath
 Provides:	liba52-apps
 
